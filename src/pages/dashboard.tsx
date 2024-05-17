@@ -50,8 +50,8 @@ export default function Dashboard() {
       <p
         className={`${poppins.className} text-xs md:text-base text-[#FF0000] pt-2 pb-5`}
       >
-        Peringatan akan diberikan apabila suhu dan/atau kebisingan melewati
-        ambang batas yang telah ditentukan.
+        Peringatan akan diberikan jika suhu dan/atau kebisingan melewati ambang
+        batas yang telah ditentukan, dan jika pintu tidak terkunci.
       </p>
       <div className="w-3/4 justify-center self-center p-10 m-5 bg-white rounded-3xl shadow shadow-xl">
         <p className={`${poppins.className} text-base md:text-xl pb-5`}>
