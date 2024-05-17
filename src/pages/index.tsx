@@ -2,6 +2,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { Poppins } from "next/font/google";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -10,14 +11,23 @@ const poppins = Poppins({
   weight: ["500"],
 });
 
+const poppinsB = Poppins({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-poppins",
+  weight: ["600"],
+});
+
 export default function Home() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
 
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (email === "user@example.com" && password === "password") {
       toast.success("Logged in!");
+      router.push("/dashboard");
     } else {
       toast.error("Failed to login.");
     }
@@ -26,24 +36,24 @@ export default function Home() {
   return (
     <section
       className={
-        "min-h-screen flex flex-col justify-center items-center text-center bg-[#2E4F4F] p-16 " +
+        "min-h-screen flex flex-col justify-center align-center items-center text-center bg-[#9BB8CD] p-16 " +
         poppins.className
       }
     >
       <Image
-        className="mx-auto"
-        src={"/logo.png"}
+        className="mx-auto mb-20"
+        src={"/dorm.png"}
         alt="Logo"
-        width={400}
+        width={800}
         height={400}
       />
       <form
         className="bg-white px-7 py-12 rounded-3xl md:w-[500px]"
         onSubmit={handleLogin}
       >
-        <h1 className="mb-5">Login to your account</h1>
+        <h1 className="mb-5 text-xl">Login to your account</h1>
         <input
-          className="bg-[#CBE4DE] px-6 py-3 rounded-full drop-shadow-lg text-sm mb-5 w-full"
+          className="bg-[#FFF7D4] px-6 py-3 rounded-full drop-shadow-lg text-sm mb-5 w-full"
           type="email"
           placeholder="Email"
           value={email}
@@ -52,7 +62,7 @@ export default function Home() {
           }}
         />
         <input
-          className="bg-[#CBE4DE] px-6 py-3 rounded-full drop-shadow-lg text-sm mb-5 w-full"
+          className="bg-[#FFF7D4] px-6 py-3 rounded-full drop-shadow-lg text-sm mb-5 w-full"
           type="password"
           placeholder="Password"
           value={password}
@@ -61,7 +71,7 @@ export default function Home() {
           }}
         />
         <button
-          className="bg-[#2E4F4F] text-white px-6 py-3 rounded-full text-sm w-full"
+          className={"bg-[#EEC759] text-white px-6 py-3 rounded-full text-sm w-full " + poppinsB.className}
           type="submit"
         >
           Submit
