@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { Poppins } from "next/font/google";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import {get, ref} from 'firebase/database'
+const {app, database} = require("../firebaseConfig");
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -10,6 +13,7 @@ const poppins = Poppins({
   variable: "--font-poppins",
   weight: ["500"],
 });
+const auth = getAuth(app)
 
 const poppinsB = Poppins({
   subsets: ["latin"],
@@ -23,12 +27,15 @@ export default function Home() {
   const [password, setPassword] = useState("");
   const router = useRouter();
 
-  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (email === "user@example.com" && password === "password") {
-      toast.success("Logged in!");
+    try{
+      const cred = await signInWithEmailAndPassword(auth, email, password);
+      localStorage.setItem("currentUser", email);
       router.push("/dashboard");
-    } else {
+    
+  }
+    catch(err){
       toast.error("Failed to login.");
     }
   };
