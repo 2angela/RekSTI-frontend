@@ -1,4 +1,4 @@
-# Remote Dorm Monitoring App📱
+# Remote Dorm Monitoring Website💻
 Disusun oleh Kelompok 9 K02 yang beranggotakan :
 - Michelle Lim / 18221052
 - Esther Regina / 18221086
