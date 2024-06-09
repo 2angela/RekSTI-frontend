@@ -82,6 +82,8 @@ export default function Dashboard() {
                 current_temp: string;
                 current_noise: string;
                 isDoorOpen: boolean;
+                max_temp: number;
+                max_noise: number;
               };
               return { id: key, ...roomData };
             });
@@ -92,8 +94,8 @@ export default function Dashboard() {
                 setTemp(el.current_temp);
                 setNoise(el.current_noise);
                 setLocked(el.isDoorOpen);
-                setTempLimit(el.max_temp);
-                setNoiseLimit(el.max_noise);
+                setTempLimit(el.max_temp.toString());
+                setNoiseLimit(el.max_noise.toString());
               }
             });
           } else {
