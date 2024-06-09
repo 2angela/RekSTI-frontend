@@ -156,7 +156,7 @@ export default function Dashboard() {
         Peringatan akan diberikan jika suhu dan/atau kebisingan melewati ambang
         batas yang telah ditentukan, dan jika pintu tidak terkunci.
       </p>
-      <div className="w-3/4 justify-center self-center p-10 m-5 bg-white rounded-3xl shadow shadow-xl">
+      <div className="w-3/4 justify-center self-center p-10 m-5 bg-white rounded-3xl shadow-xl">
         <p className={`${poppins.className} text-base md:text-xl pb-5`}>
           Suhu ruangan: {temp} °C
         </p>
@@ -164,7 +164,7 @@ export default function Dashboard() {
           Tingkat kebisingan: {noise} dB
         </p>
       </div>
-      <div className="w-3/4 justify-center self-center p-10 m-5 bg-white rounded-3xl shadow shadow-xl">
+      <div className="w-3/4 justify-center self-center p-10 m-5 bg-white rounded-3xl shadow-xl">
         {lockOn ? (
           <p className={`${poppins.className} text-base md:text-lg`}>
             Saat ini, ruangan anda{" "}
@@ -174,9 +174,9 @@ export default function Dashboard() {
           </p>
         ) : null}
       </div>
-      <div className="w-3/4 justify-center self-center p-10 m-5 bg-white rounded-3xl shadow shadow-xl">
+      <div className="w-3/4 justify-center self-center p-10 m-5 bg-white rounded-3xl shadow-xl">
         <button
-          className={`${poppinsXB.className} bg-[#EEC759] w-1/3 h-fit border-2 border-[#BF9C3B] text-xs md:text-lg rounded-full shadow shadow-xl p-2 mt-3`}
+          className={`${poppinsXB.className} bg-[#EEC759] w-1/3 h-fit border-2 border-[#BF9C3B] text-xs md:text-lg rounded-full shadow-xl p-2 mt-3`}
           onClick={handleLogout}
         >
           Log Out
