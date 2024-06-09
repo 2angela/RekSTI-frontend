@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { Poppins } from "next/font/google";
 import { useRouter } from "next/router";
-import {onValue, ref} from 'firebase/database'
-const {app, database, auth} = require("../firebaseConfig");
+import { onValue, ref } from "firebase/database";
+const { app, database, auth } = require("../firebaseConfig");
 import { signOut } from "firebase/auth";
 
 const poppins = Poppins({
@@ -39,15 +39,15 @@ export default function Dashboard() {
 
   const handleLogout = async () => {
     try {
-        await signOut(auth);
-        await localStorage.removeItem('currentUser');
-        router.push("/")
-        
-        console.log('User logged out');
+      await signOut(auth);
+      await localStorage.removeItem("currentUser");
+      router.push("/");
+
+      console.log("User logged out");
     } catch (error) {
-        console.error('Error logging out:', error);
+      console.error("Error logging out:", error);
     }
-};
+  };
 
   interface RoomData {
     id: string;
@@ -63,26 +63,25 @@ export default function Dashboard() {
     max_noise: number; // Tambahkan properti max_noise
     // tambahkan properti lain jika ada
   }
-  
-  
+
   useEffect(() => {
     async function fetchData() {
       // ambil currentUser
-      const email = localStorage.getItem('currentUser');
+      const email = localStorage.getItem("currentUser");
       // ambil realtimeDatabase
       try {
-        const roomsRef = ref(database, 'rooms');
+        const roomsRef = ref(database, "rooms");
         onValue(roomsRef, (snapshot) => {
           const data = snapshot.val();
           if (data) {
             const roomsArray = Object.entries(data).map(([key, value]) => {
               // Memastikan bahwa value adalah objek yang memiliki struktur yang sesuai
               const roomData = value as {
-                user: { email: string },
-                rooms_name: string,
-                current_temp: string,
-                current_noise: string,
-                isDoorOpen: boolean
+                user: { email: string };
+                rooms_name: string;
+                current_temp: string;
+                current_noise: string;
+                isDoorOpen: boolean;
               };
               return { id: key, ...roomData };
             });
@@ -98,11 +97,11 @@ export default function Dashboard() {
               }
             });
           } else {
-            console.log('No data available');
+            console.log("No data available");
           }
         });
       } catch (err) {
-        console.error('Error fetching data:', err);
+        console.error("Error fetching data:", err);
       }
     }
     fetchData();
@@ -112,11 +111,6 @@ export default function Dashboard() {
 
     return () => clearInterval(interval); // Membersihkan interval saat komponen dibongkar
   }, []);
-  
-  
-  
-  
-  
 
   // useEffect(() => {
   //   async function fetchData() {
@@ -137,7 +131,7 @@ export default function Dashboard() {
   //     } catch (err) {
   //       console.log(err);
   //     }
-      
+
   //     // cari yang emailnya sama, simpen di variable local
   //     // set localStorage "currentUserData" dari object yg emailnya sama
   //     // ambil setiap atribut dan masukkan ke dalam variable useState
@@ -145,13 +139,11 @@ export default function Dashboard() {
   // }, [])
 
   return (
-    <div className="flex flex-col h-screen bg-[#9BB8CD] justify-start align-center text-center p-10">
+    <div className="flex flex-col h-full bg-[#9BB8CD] justify-start align-center text-center p-10">
       <p className={`${poppinsXB.className} text-2xl md:text-4xl pb-5`}>
         Dashboard Penghuni
       </p>
-      <p className={`${poppinsB.className} text-xl md:text-2xl pb-5`}>
-        {room}
-      </p>
+      <p className={`${poppinsB.className} text-xl md:text-2xl pb-5`}>{room}</p>
       <p className={`${poppinsB.className} text-base md:text-lg text-white`}>
         Batas minimum ruangan kamar: {tempLimit}
       </p>
