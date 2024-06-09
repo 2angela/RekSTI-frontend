@@ -1,5 +1,5 @@
 # Remote Dorm Monitoring Website💻
-Disusun oleh Kelompok 9 K02 yang beranggotakan :
+Disusun oleh Kelompok 13 K02 yang beranggotakan :
 - Michelle Lim / 18221052
 - Esther Regina / 18221086
 - Razan Aditya Putra / 18221132
