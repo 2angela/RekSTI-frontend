@@ -29,7 +29,7 @@ Sistem Remote Dorm Monitoring adalah sistem yang memungkinkan penghuni kos untuk
 ## Cara menjalankan website (website dirancang hanya untuk penghuni kos)
 1. Jalankan ```npm install``` untuk mengunduh dan menginstal semua dependensi yang diperlukan oleh proyek dari file ```package.json```.
 2. Jalankan command ```npm run dev``` pada terminal untuk menjalankan web secara lokal.
-3. Buka ```localhost:3000``` pada web browser
+3. Buka ```localhost:3000``` pada web browser atau jalankan https://dorm-remote-monitoring.vercel.app/
 
 > **Login sebagai salah satu penghuni kos:**
 > - 📧 **Username:** penghuni@gmail.com
