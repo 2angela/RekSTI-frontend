@@ -45,5 +45,6 @@ Sistem Remote Dorm Monitoring adalah sistem yang memungkinkan penghuni kos untuk
 |Data kondisi pintu real time kamar penghuni kos|Yes|Yes|
 |Data historis|Yes|Yes|
 |Melakukan personalisasi atas kamar|No|Yes|
-|Menerima email peringatan|Yes|No|
+|Menerima peringatan pelanggaran|Yes|Yes|
+|Menerima notifikasi|Yes|No|
 |Melihat data pelanggaran seluruh penghuni kos|Yes|No|
